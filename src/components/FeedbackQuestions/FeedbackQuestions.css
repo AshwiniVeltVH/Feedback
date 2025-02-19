@@ -7,7 +7,7 @@
     color: white;
 }
 
-.question-container {
+.questionContainer {
     background-color: rgba(255, 255, 255, 0.186);
     padding: 20px;
     width: 500px;
@@ -20,13 +20,13 @@
     border-radius: 7px;
 }
 
-.rating-boxes {
+.ratingBoxes {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
 
-.rating-box {
+.ratingBox {
     width: 40px;
     height: 40px;
     margin: 0 5px;
@@ -36,11 +36,16 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
-    background-color: rgba(240, 240, 240, 0.8); /* Semi-transparent background */
+    background-color: rgba(240, 240, 240, 0.8); 
 }
 
-.rating-box:hover {
-    background-color: rgba(224, 224, 224, 0.8); /* Semi-transparent background */
+.ratingBox.selected {
+    background-color: grey; /* Change this to your desired selected color */
+    color: white;
+}
+
+.ratingBox:hover {
+    background-color: var(--iconColor);
 }
 
 .nextButton {

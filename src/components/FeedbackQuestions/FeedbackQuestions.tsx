@@ -42,13 +42,13 @@ const FeedbackQuestions = () => {
 
   return (
     <div className='questions'>
-      <div className='question-container'>
+      <div className='questionContainer'>
         <h2>{questions[currentQuestionIndex]}</h2>
-        <div className='rating-boxes'>
+        <div className='ratingBoxes'>
           {Array.from({ length: 10 }, (_, i) => (
             <button
               key={i}
-              className={`rating-box ${selectedRating === i + 1 ? 'selected' : ''}`}
+              className={`ratingBox ${selectedRating === i + 1 ? 'selected' : ''}`}
               onClick={() => handleRatingSelect(i + 1)}
             >
               {i + 1}
