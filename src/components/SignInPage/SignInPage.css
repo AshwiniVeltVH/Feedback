@@ -1,0 +1,73 @@
+.sign-in-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: white;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    background: linear-gradient(to bottom, #0a0f24, #081025);
+}
+
+.sign-in-page h2 {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
+    max-width: 80%;
+    line-height: 1.4;
+    letter-spacing: 1px;
+    padding: 0 10px;
+}
+
+
+.sign-in-container {
+    padding: 25px;
+    width: 350px;
+    max-width: 90%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 12px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sign-in-container:hover {
+    transform: scale(1.02);
+}
+
+.google-button {
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 24px;
+    transition: all 0.3s ease;
+    gap: 10px;
+    backdrop-filter: blur(8px);
+}
+
+.google-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.google-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #000;
+    transform: translateY(-2px);
+}
+
+.google-button:active {
+    transform: translateY(0);
+}
