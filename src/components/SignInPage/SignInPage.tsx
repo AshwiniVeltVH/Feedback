@@ -32,13 +32,13 @@ const SignInPage = () => {
   }, [navigate]);
 
   return (
-    <div className='sign-in-page'>
+    <div className='signInPage'>
       <h2>Good, bad, or hilarious — we want it all! <br /> Sign in to spill the tea!</h2>
-      <div className="sign-in-container">
+      <div className="signInContainer">
         {value ? (
           <p>Redirecting to user details...</p>
         ) : (
-          <button className="google-button" onClick={handleGoogleSignIn}>
+          <button className="googleButton" onClick={handleGoogleSignIn}>
             <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google logo" />
             Sign in with Google
           </button>

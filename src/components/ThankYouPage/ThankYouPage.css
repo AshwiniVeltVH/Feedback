@@ -1,48 +1,54 @@
-.signInPage {
+.thankYouPage {
     display: flex;
+    flex-direction: column;
+    gap: 10px;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    color: white;
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-    background: linear-gradient(to bottom, #0a0f24, #081025);
 }
 
-.signInPage h2 {
+.thankYouContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.thankYouText {
     font-size: 32px;
     font-weight: 700;
-    text-align: center;
     text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.3);
-    max-width: 80%;
     line-height: 1.4;
     letter-spacing: 1px;
     padding: 0 10px;
-    font-family: var(--mainFont);
+    color: aliceblue;
 }
 
-
-.signInContainer {
-    padding: 25px;
-    width: 350px;
-    max-width: 90%;
-    text-align: center;
+.thankYouBox {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border-radius: 12px;
-    transition: transform 0.3s ease-in-out;
-    backdrop-filter: blur(60px);
-
+    max-width: 900px;
+    justify-content: center;
+    align-items: center; /* Align items to the right */
 }
 
-.signInContainer:hover {
-    transform: scale(1.02);
+.logoutButton {
+    margin-top: 20px;
 }
 
-.googleButton {
+
+
+.logout:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.logout {
     appearance: none;
     background-color: transparent;
     border: 2px solid #fff;
@@ -58,19 +64,4 @@
     transition: all 0.3s ease;
     gap: 10px;
     backdrop-filter: blur(8px);
-}
-
-.googleButton img {
-    width: 20px;
-    height: 20px;
-}
-
-.googleButton:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    color: white;
-    transform: translateY(-2px);
-}
-
-.googleButton:active {
-    transform: translateY(0);
 }

@@ -6,6 +6,7 @@ import UserDetails from './components/UserDetails/UserDetails';
 import './styles/Reset.css'
 import './styles/Variables.css'
 import './assets/backGround.webp'
+import ThankYouPage from './components/ThankYouPage/ThankYouPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<SignInPage />} />
           <Route path="/user-details" element={<UserDetails />} />
           <Route path="/feedback-questions" element={<FeedbackQuestions />} />
+          <Route path="/thankyou-page" element={<ThankYouPage />} />
         </Routes>
       </div>
     </Router>

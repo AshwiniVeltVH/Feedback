@@ -18,20 +18,26 @@ const questions = [
 
 const FeedbackQuestions = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedRating, setSelectedRating] = useState<number | null>(null);
   const navigate = useNavigate();
 
-  const handleNextQuestion = () => {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      // Handle form submission here
-      alert('Form submitted!');
-    }
+  const handleRatingSelect = (rating: number) => {
+    setSelectedRating(rating);
   };
 
-  const handleLogOut = () => {
-    localStorage.removeItem("email");
-    navigate('/');
+  const handleNextQuestion = () => {
+    if (selectedRating === null) {
+      alert('Please select a rating before proceeding.');
+      return;
+    }
+
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setSelectedRating(null); // Reset rating for the next question
+    } else {
+      // Navigate to ThankYouPage on submit
+      navigate('/thankyou-page');
+    }
   };
 
   return (
@@ -40,20 +46,21 @@ const FeedbackQuestions = () => {
         <h2>{questions[currentQuestionIndex]}</h2>
         <div className='rating-boxes'>
           {Array.from({ length: 10 }, (_, i) => (
-            <button key={i} className='rating-box' onClick={handleNextQuestion}>
+            <button
+              key={i}
+              className={`rating-box ${selectedRating === i + 1 ? 'selected' : ''}`}
+              onClick={() => handleRatingSelect(i + 1)}
+            >
               {i + 1}
             </button>
           ))}
         </div>
         <div className="nextButton">
-          <NextButton 
-            onClick={handleNextQuestion} 
+          <NextButton
+            onClick={handleNextQuestion}
             className='nextQuestion'
-            label={currentQuestionIndex < questions.length - 1 ? 'Next' : 'Submit'} 
+            label={currentQuestionIndex < questions.length - 1 ? 'Next' : 'Submit'}
           />
-        </div>
-        <div className="logoutButton">
-          <button className="logout" onClick={handleLogOut}>Log Out</button>
         </div>
       </div>
     </div>

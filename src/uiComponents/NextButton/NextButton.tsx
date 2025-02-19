@@ -8,7 +8,7 @@ interface NextButtonProps {
   className: string;
 }
 
-const NextButton = ({ onClick, label,className }: NextButtonProps) => {
+const NextButton = ({ onClick, label }: NextButtonProps) => {
   return (
     <button className="button" onClick={onClick}>
       {label}

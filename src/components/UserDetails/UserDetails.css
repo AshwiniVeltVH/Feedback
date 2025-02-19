@@ -1,4 +1,4 @@
-.form-container {
+.formContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,7 +7,7 @@
     color: white;
 }
 
-.form-box {
+.formBox {
     background-color: rgba(255, 255, 255, 0.186);
     padding: 25px;
     width: 350px;
@@ -16,35 +16,34 @@
     flex-direction: column;
     gap: 20px;
     border-radius: 7px;
+    backdrop-filter: blur(60px);
 }
 
-.input-group {
+.inputGroup {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.input-group input {
+.inputGroup input {
     padding: 12px;
     border: 1px solid #05052f;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.092);
+    color: white;
 }
 
-.input-group input:focus {
+.inputGroup input:focus {
     outline: none;
     border: 1px solid #030355;
     background-color: rgba(255, 255, 255, 0.092);
 }
 
-.input-group input:-webkit-autofill {
-    background-color: transparent !important;
-    color: white !important;
-    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
-    transition: background-color 5000s ease-in-out 0s;
-} 
+.inputGroup input::placeholder {
+    color: white;
+}
 
-.error-message {
+.errorMessage {
     color: red;
     font-size: 14px;
 }
@@ -58,7 +57,7 @@
     background-color: rgba(255, 255, 255, 0.092) !important;
 }
 
-.success-message {
+.successMessage {
     color: #05052f;
     font-size: 16px;
     font-weight: bold;

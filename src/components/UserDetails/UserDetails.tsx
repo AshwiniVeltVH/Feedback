@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './UserDetails.css';
 import NextButton from '../../uiComponents/NextButton/NextButton';
+import { validateEmail } from '../../helper/EmailValidation';
+import { validatePhone } from '../../helper/PhoneValidation';
 
 const UserDetails = () => {
   const [formData, setFormData] = useState({
@@ -18,16 +20,6 @@ const UserDetails = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const validateEmail = (email: string) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(String(email).toLowerCase());
-  };
-
-  const validatePhone = (phone: string) => {
-    const re = /^\d{10}$/;
-    return re.test(String(phone));
   };
 
   const handleNext = async () => {
@@ -61,10 +53,10 @@ const UserDetails = () => {
   };
 
   return (
-    <div className='form-container'>
-      <div className='form-box'>
+    <div className='formContainer'>
+      <div className='formBox'>
         <h2>User Information</h2>
-        <div className="input-group">
+        <div className="inputGroup">
           <input type="text" name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} />
           <input type="text" name="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} />
           <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
@@ -72,7 +64,7 @@ const UserDetails = () => {
           <input type="text" name="designation" placeholder="Designation" value={formData.designation} onChange={handleChange} />
           <input type="text" name="organization" placeholder="Organization" value={formData.organization} onChange={handleChange} />
         </div>
-        {error && <p className="error-message">{error}</p>}
+        {error && <p className="errorMessage">{error}</p>}
         <div className="submitButton">
           <NextButton className='nextBtn' onClick={handleNext} label="Next" />
         </div>
