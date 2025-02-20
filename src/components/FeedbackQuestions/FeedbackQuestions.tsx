@@ -19,15 +19,17 @@ const questions = [
 const FeedbackQuestions = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedRating, setSelectedRating] = useState<number | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
   const handleRatingSelect = (rating: number) => {
     setSelectedRating(rating);
+    setError(null); // Clear error when a rating is selected
   };
 
   const handleNextQuestion = () => {
     if (selectedRating === null) {
-      alert('Please select a rating before proceeding.');
+      setError('Please provide a rating before moving to the next question');
       return;
     }
 
@@ -55,6 +57,7 @@ const FeedbackQuestions = () => {
             </button>
           ))}
         </div>
+        {error && <p className="errorMessage">{error}</p>}
         <div className="nextButton">
           <NextButton
             onClick={handleNextQuestion}

@@ -38,8 +38,9 @@ const UserDetails = () => {
     }
     setError('');
 
-    // Convert form data to JSON
+  
     const userData = {
+      mailid: formData.email,
       phonenumber: formData.phone,
       firstname: formData.firstName,
       secondname: formData.lastName,

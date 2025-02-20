@@ -2,4 +2,9 @@
     background-image: url(assets/background5.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
+}
+
+body{
+    height: 100vh;
 }
