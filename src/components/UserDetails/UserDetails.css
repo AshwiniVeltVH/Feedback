@@ -25,21 +25,41 @@
     gap: 15px;
 }
 
-.inputGroup input {
-    padding: 12px;
+.inputContainer {
+    position: relative;
+}
+
+.inputContainer .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    pointer-events: none;
+    margin-left: 9px;
+}
+
+.inputContainer input {
+    padding: 12px 12px 12px 35px; /* Adjust padding to make space for the icon */
     border: 1px solid #05052f;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.092);
     color: white;
+    width: 250px;
 }
 
-.inputGroup input:focus {
+.inputContainer input:focus {
     outline: none;
     border: 1px solid #030355;
     background-color: rgba(255, 255, 255, 0.092);
 }
 
-.inputGroup input::placeholder {
+.inputContainer input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.092) inset !important;
+    -webkit-text-fill-color: white !important;
+    -webkit-background-clip: text !important;
+}
+
+.inputContainer input::placeholder {
     color: white;
 }
 

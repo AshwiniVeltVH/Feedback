@@ -5,7 +5,6 @@ import SignInPage from './components/SignInPage/SignInPage';
 import UserDetails from './components/UserDetails/UserDetails';
 import './styles/Reset.css'
 import './styles/Variables.css'
-import './assets/backGround.webp'
 import ThankYouPage from './components/ThankYouPage/ThankYouPage';
 
 function App() {
