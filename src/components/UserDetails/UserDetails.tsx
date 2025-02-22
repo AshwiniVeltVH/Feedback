@@ -40,13 +40,15 @@ const UserDetails = () => {
     setError('');
 
     const userData = {
-      mailid: formData.email,
-      phonenumber: formData.phone,
-      firstname: formData.firstName,
-      secondname: formData.lastName,
-      designation: formData.designation,
-      organization: formData.organization,
+      mailid: formData.email,         
+      phonenumber: formData.phone,    
+      firstname: formData.firstName,  
+      secondname: formData.lastName,  
+      designation: formData.designation,   
+      organization: formData.organization, 
     };
+
+    console.log('User Data:', userData);
 
     try {
       const response = await axios.post('https://feedbacksystem-rutm.onrender.com/api/userdetails/', userData);

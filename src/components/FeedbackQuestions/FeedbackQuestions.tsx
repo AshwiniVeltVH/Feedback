@@ -24,8 +24,8 @@ const FeedbackQuestions = () => {
       try {
         const response = await axios.get<FeedbackQuestion[]>('https://feedbacksystem-rutm.onrender.com/api/feedbackquestions/');
         setQuestions(response.data);
-      } catch (error) {
-        console.error('Error fetching questions:', error);
+      } catch (error: any) {
+        console.error('Error fetching questions:', error.response ? error.response.data : error.message);
         setError('Failed to load questions. Please try again later.');
       } finally {
         setLoading(false);
