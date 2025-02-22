@@ -4,7 +4,6 @@ import './UserDetails.css';
 import NextButton from '../../uiComponents/NextButton/NextButton';
 import { validateEmail } from '../../helper/EmailValidation';
 import { validatePhone } from '../../helper/PhoneValidation';
-import axios from 'axios';
 
 const UserDetails = () => {
   const [formData, setFormData] = useState({
@@ -34,29 +33,39 @@ const UserDetails = () => {
       return;
     }
     if (!validatePhone(formData.phone)) {
-      setError('Please enter a valid 10-digit phone number.');
+      setError('Please enter a valid phone number in the format +<country code><10-digit number>.');
       return;
     }
     setError('');
 
+    // Prepare data for API
     const userData = {
-      mailid: formData.email,         
-      phonenumber: formData.phone,    
-      firstname: formData.firstName,  
-      secondname: formData.lastName,  
-      designation: formData.designation,   
-      organization: formData.organization, 
+      mailid: formData.email,
+      phonenumber: formData.phone,
+      firstname: formData.firstName,
+      secondname: formData.lastName,
+      designation: formData.designation,
+      organization: formData.organization,
     };
 
-    console.log('User Data:', userData);
-
     try {
-      const response = await axios.post('https://feedbacksystem-rutm.onrender.com/api/userdetails/', userData);
-      console.log('User Data:', response.data);
+      const response = await fetch('https://feedbacksystem-rutm.onrender.com/api/userdetails/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to submit user details');
+      }
+
+      // Navigate to the next page
       navigate('/feedback-questions');
-    } catch (error) {
-      console.error('Error saving user details:', error);
-      setError('Failed to save user details. Please try again.');
+    } catch (error: any) {
+      setError(error.message || 'An error occurred while submitting your details. Please try again.');
     }
   };
 
