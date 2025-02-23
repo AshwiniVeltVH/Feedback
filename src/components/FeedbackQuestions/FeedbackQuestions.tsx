@@ -15,6 +15,7 @@ const FeedbackQuestions = () => {
   const [questions, setQuestions] = useState<FeedbackQuestion[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedRating, setSelectedRating] = useState<number | null>(null);
+  const [ratings, setRatings] = useState<number[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -46,10 +47,24 @@ const FeedbackQuestions = () => {
       return;
     }
 
+    setRatings([...ratings, selectedRating]);
+
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-      setSelectedRating(null); // Reset rating for the next question
+      setSelectedRating(null); 
     } else {
+      
+      const email = localStorage.getItem("email");
+      const firstName = localStorage.getItem("firstName");
+      const lastName = localStorage.getItem("lastName");
+      const fullName = `${firstName} ${lastName}`;
+      const feedbackData = {
+        email,
+        fullName,
+        ratings,
+      };
+      console.log('Feedback Data:', feedbackData);
+
       // Navigate to ThankYouPage on submit
       navigate('/thankyou-page');
     }

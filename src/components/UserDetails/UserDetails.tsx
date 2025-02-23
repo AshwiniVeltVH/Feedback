@@ -62,6 +62,10 @@ const UserDetails = () => {
         throw new Error(errorData.message || 'Failed to submit user details');
       }
 
+      // Store first name and last name separately in local storage
+      localStorage.setItem("firstName", formData.firstName);
+      localStorage.setItem("lastName", formData.lastName);
+
       // Navigate to the next page
       navigate('/feedback-questions');
     } catch (error: any) {

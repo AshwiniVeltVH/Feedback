@@ -12,9 +12,11 @@ const SignInPage = () => {
     signInWithPopup(auth, provider)
       .then((data) => {
         const email = data.user.email;
-        if (email) {
+        const fullName = data.user.displayName;
+        if (email && fullName) {
           setValue(email);
           localStorage.setItem("email", email);
+          localStorage.setItem("fullName", fullName);
         }
         navigate('/user-details');
       })

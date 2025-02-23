@@ -23,6 +23,13 @@
     font-family: var(--mainFont);
 }
 
+/* Media queries for mobile responsiveness */
+@media (max-width: 600px) {
+    .signInPage h2 {
+        font-size: 24px;
+        max-width: 90%;
+    }
+}
 
 .signInContainer {
     padding: 25px;
@@ -35,7 +42,6 @@
     border-radius: 12px;
     transition: transform 0.3s ease-in-out;
     backdrop-filter: blur(60px);
-
 }
 
 .signInContainer:hover {
