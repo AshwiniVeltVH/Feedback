@@ -62,12 +62,15 @@ const UserDetails = () => {
         throw new Error(errorData.message || 'Failed to submit user details');
       }
 
+      // Log user details in the specified JSON format
+      console.log('User Details:', JSON.stringify(userData, null, 2));
+
       // Store first name and last name separately in local storage
       localStorage.setItem("firstName", formData.firstName);
       localStorage.setItem("lastName", formData.lastName);
 
-      // Navigate to the next page
-      navigate('/feedback-questions');
+      // Navigate to the QuestionModule page
+      navigate('/question-module');
     } catch (error: any) {
       setError(error.message || 'An error occurred while submitting your details. Please try again.');
     }

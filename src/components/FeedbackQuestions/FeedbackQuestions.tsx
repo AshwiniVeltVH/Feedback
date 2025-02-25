@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './FeedbackQuestions.css';
 import NextButton from '../../uiComponents/NextButton/NextButton';
 import axios from 'axios';
@@ -19,12 +19,17 @@ const FeedbackQuestions = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const queryParams = new URLSearchParams(location.search);
+  const feedbackType = queryParams.get('type');
 
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
         const response = await axios.get<FeedbackQuestion[]>('https://feedbacksystem-rutm.onrender.com/api/feedbackquestions/');
-        setQuestions(response.data);
+        const filteredQuestions = response.data.filter(question => question.feedbacktype === parseInt(feedbackType || '0'));
+        setQuestions(filteredQuestions);
       } catch (error: any) {
         console.error('Error fetching questions:', error.response ? error.response.data : error.message);
         setError('Failed to load questions. Please try again later.');
@@ -34,7 +39,7 @@ const FeedbackQuestions = () => {
     };
 
     fetchQuestions();
-  }, []);
+  }, [feedbackType]);
 
   const handleRatingSelect = (rating: number) => {
     setSelectedRating(rating);
@@ -53,7 +58,6 @@ const FeedbackQuestions = () => {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setSelectedRating(null); 
     } else {
-      
       const email = localStorage.getItem("email");
       const firstName = localStorage.getItem("firstName");
       const lastName = localStorage.getItem("lastName");
@@ -62,8 +66,9 @@ const FeedbackQuestions = () => {
         email,
         fullName,
         ratings,
+        feedbackType,
       };
-      console.log('Feedback Data:', feedbackData);
+      console.log('Feedback Data:', JSON.stringify(feedbackData, null, 2));
 
       // Navigate to ThankYouPage on submit
       navigate('/thankyou-page');
