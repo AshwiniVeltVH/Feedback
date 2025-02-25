@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './QuestionModule.css';
@@ -6,6 +7,13 @@ const QuestionModule = () => {
   const [showModule1Feedback, setShowModule1Feedback] = useState(false);
   const [showModule2Feedback, setShowModule2Feedback] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const email = localStorage.getItem("email");
+    if (email !== 'ashwinivelt@karunya.edu.in') {
+      navigate('/user-details');
+    }
+  }, [navigate]);
 
   const handleModule1Change = () => {
     setShowModule1Feedback(!showModule1Feedback);
@@ -16,6 +24,7 @@ const QuestionModule = () => {
   };
 
   const handleFeedbackTypeSelect = (feedbackType: number) => {
+    localStorage.setItem("selectedFeedbackType", feedbackType.toString());
     navigate(`/feedback-questions?type=${feedbackType}`);
   };
 

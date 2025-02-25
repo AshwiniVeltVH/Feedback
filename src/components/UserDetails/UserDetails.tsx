@@ -69,8 +69,9 @@ const UserDetails = () => {
       localStorage.setItem("firstName", formData.firstName);
       localStorage.setItem("lastName", formData.lastName);
 
-      // Navigate to the QuestionModule page
-      navigate('/question-module');
+      // Navigate to the FeedbackQuestions page with the selected feedback type
+      const feedbackType = localStorage.getItem("selectedFeedbackType");
+      navigate(`/feedback-questions?type=${feedbackType}`);
     } catch (error: any) {
       setError(error.message || 'An error occurred while submitting your details. Please try again.');
     }
