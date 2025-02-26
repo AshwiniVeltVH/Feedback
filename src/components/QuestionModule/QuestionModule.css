@@ -1,15 +1,14 @@
 body {
-  background-image: url('your-image-path.png'); /* Ensure correct path */
-  background-size: cover;  /* Covers the entire viewport */
-  background-position: center; /* Centers the background */
-  background-repeat: no-repeat; /* Prevents tiling */
-  height: 100vh; /* Ensures it covers full height */
-  width: 100vw; /* Ensures it covers full width */
+  background-image: url('your-image-path.png'); 
+  background-size: cover;  
+  background-position: center;
+  background-repeat: no-repeat; 
+  height: 100vh; 
+  width: 100vw; 
   margin: 0;
   padding: 0;
 }
 
-/* Main module container */
 .questionModule {
   display: flex;
   justify-content: center;
@@ -46,14 +45,12 @@ body {
   margin-bottom: 10px;
 }
 
-/* Module Title */
 h2 {
   font-size: 1.7rem;
   margin-bottom: 20px;
   font-weight: bold;
 }
 
-/* Checkbox container */
 .moduleCheckbox {
   width: 100%;
   padding: 12px;
@@ -71,7 +68,6 @@ h2 {
   transform: scale(1.02);
 }
 
-/* Feedback checkboxes container */
 .feedbackCheckboxes {
   margin-top: 15px;
   padding: 10px;
@@ -81,7 +77,6 @@ h2 {
   width: 100%;
 }
 
-/* Label styling */
 label {
   display: flex;
   align-items: center;
@@ -96,7 +91,6 @@ label:hover {
   color: rgb(12, 22, 52);
 }
 
-/* Checkbox styling */
 input[type="checkbox"] {
   appearance: none;
   width: 20px;
@@ -112,7 +106,6 @@ input[type="checkbox"] {
   position: relative;
 }
 
-/* Checked state */
 input[type="checkbox"]:checked {
   background-color: white;
   border-color: white;
@@ -128,7 +121,6 @@ input[type="checkbox"]:checked::before {
   top: 1px;
 }
 
-/* Responsive Design */
 @media (max-width: 600px) {
   .questionModule {
     width: 90%;

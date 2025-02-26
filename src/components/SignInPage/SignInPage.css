@@ -23,7 +23,6 @@
     font-family: var(--mainFont);
 }
 
-/* Media queries for mobile responsiveness */
 @media (max-width: 600px) {
     .signInPage h2 {
         font-size: 24px;

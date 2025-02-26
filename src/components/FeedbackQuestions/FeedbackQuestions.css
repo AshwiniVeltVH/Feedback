@@ -11,7 +11,7 @@
     background-color: rgba(255, 255, 255, 0.186);
     padding: 20px;
     width: 500px;
-    height: 250px; /* Increased height to accommodate error message */
+    height: 250px; 
     text-align: center;
     display: flex;
     justify-content: center;
@@ -24,8 +24,8 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    flex-wrap: nowrap; 
+    overflow-x: auto; 
 }
 
 .ratingBox {
@@ -42,7 +42,7 @@
 }
 
 .ratingBox.selected {
-    background-color: grey; /* Change this to your desired selected color */
+    background-color: grey; 
     color: white;
 }
 
@@ -61,11 +61,11 @@
     margin-top: 10px;
 }
 
-/* Media queries for mobile responsiveness */
+
 @media (max-width: 600px) {
     .questionContainer {
         width: 90%;
-        height: auto; /* Adjust height for mobile */
+        height: auto; 
         padding: 15px;
     }
 

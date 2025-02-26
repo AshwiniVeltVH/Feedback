@@ -43,7 +43,7 @@ const FeedbackQuestions = () => {
 
   const handleRatingSelect = (rating: number) => {
     setSelectedRating(rating);
-    setError(null); // Clear error when a rating is selected
+    setError(null); 
   };
 
   const handleNextQuestion = () => {
@@ -70,7 +70,6 @@ const FeedbackQuestions = () => {
       };
       console.log('Feedback Data:', JSON.stringify(feedbackData, null, 2));
 
-      // Navigate to ThankYouPage on submit
       navigate('/thankyou-page');
     }
   };

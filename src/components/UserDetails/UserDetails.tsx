@@ -23,7 +23,6 @@ const UserDetails = () => {
   };
 
   const handleNext = async () => {
-    // Perform validation
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.designation || !formData.organization) {
       setError('Please fill in all fields.');
       return;
@@ -62,14 +61,11 @@ const UserDetails = () => {
         throw new Error(errorData.message || 'Failed to submit user details');
       }
 
-      // Log user details in the specified JSON format
       console.log('User Details:', JSON.stringify(userData, null, 2));
 
-      // Store first name and last name separately in local storage
       localStorage.setItem("firstName", formData.firstName);
       localStorage.setItem("lastName", formData.lastName);
 
-      // Navigate to the FeedbackQuestions page with the selected feedback type
       const feedbackType = localStorage.getItem("selectedFeedbackType");
       navigate(`/feedback-questions?type=${feedbackType}`);
     } catch (error: any) {
