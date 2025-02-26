@@ -10,7 +10,7 @@ const QuestionModule = () => {
 
   useEffect(() => {
     const email = localStorage.getItem("email");
-    if (email !== 'vigneshapcse@gmail.com') {
+    if (email !== 'ashwinivelt@karunya.edu.in') {
       navigate('/user-details');
     }
   }, [navigate]);

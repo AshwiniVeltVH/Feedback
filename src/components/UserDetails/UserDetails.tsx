@@ -12,7 +12,7 @@ const UserDetails = () => {
     email: '',
     phone: '',
     designation: '',
-    organization: '',
+    organization: '', 
   });
 
   const [error, setError] = useState('');
