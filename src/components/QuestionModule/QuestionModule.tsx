@@ -10,7 +10,7 @@ const QuestionModule = () => {
 
   useEffect(() => {
     const email = localStorage.getItem("email");
-    if (email !== 'ashwinivelt@karunya.edu.in') {
+    if (email !== 'vigneshapcse@gmail.com') {
       navigate('/user-details');
     }
   }, [navigate]);
@@ -32,6 +32,7 @@ const QuestionModule = () => {
     <div className="questionModule">
       <div className="moduleBox">
         <h2>Select Modules</h2>
+        <div className="moduleFeedbackCheckboxes"></div>
         <div className="moduleCheckbox">
           <label>
             <input type="checkbox" onChange={handleModule1Change} />

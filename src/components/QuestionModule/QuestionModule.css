@@ -26,9 +26,15 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 9px;
   border-radius: 7px;
   backdrop-filter: blur(60px);
+}
+
+.mofuleFeedbackCheckboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .moduleCheckbox {

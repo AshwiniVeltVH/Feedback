@@ -19,7 +19,7 @@ const SignInPage = () => {
           localStorage.setItem("fullName", fullName);
 
           // Check if the user is an admin
-          if (email === 'vigneshapcse@gmail.com') {
+          if (email === 'ashwinivelt@karunya.edu.in') {
             navigate('/question-module');
           } else {
             navigate('/user-details');
